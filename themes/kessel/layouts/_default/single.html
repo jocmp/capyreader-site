@@ -1,0 +1,29 @@
+{{ define "main" }}
+	{{ partial "header" . }}
+	<main>
+		<article>
+			<h1>{{ .Title }}</h1>
+			<time>{{ .Date.Format "2006-01-02" }}</time>
+			<div>
+				{{ .Content }}
+			</div>
+			{{ with .Params.tags }}
+			<div class="tags">
+				<p>Filed under</p>
+				<ul id="tags">
+					{{ range . }}
+					<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+					{{ end }}
+				</ul>
+			</div>
+			{{ end }}
+			{{ with .Site.DisqusShortname }}
+			<div>
+				{{ template "_internal/disqus.html" . }}
+			</div>
+			{{ end }}
+		</article>
+	</main>
+	{{ partial "footer" . }}
+{{ end }}
+

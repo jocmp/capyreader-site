@@ -1,0 +1,19 @@
+{{ define "main" }}
+  {{ partial "header" . }}
+  <main>
+		{{ if .Title }}
+		<div>
+			{{ with .Title }}<h1>{{ . }}</h1>{{ end }}
+		</div>
+		{{ end }}
+
+		{{ range .Paginator.Pages }}
+			<p>
+				<a href="{{ .Permalink }}">{{ .Title }}</a>
+				<time>{{ .Date.Format "2006-01-02" }}</time>
+			</p>
+		{{ end }}
+		{{ partial "pagination.html" . }}
+	</main>
+  {{ partial "footer" . }}
+{{ end }}

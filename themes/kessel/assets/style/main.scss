@@ -1,0 +1,60 @@
+$primary-color: #8A7D3F;
+$secondary-color: #f9f7f0;
+$text-color: #1e2019;
+
+html {
+  background: $primary-color;
+}
+
+body {
+  color: $text-color;
+  font-family: "Lora", serif;
+}
+
+a:link {
+  color: $text-color;
+}
+
+a:visited {
+  text-decoration: outline;
+  color: $text-color;
+}
+
+main {
+  min-height: 60vh;
+  padding: 2rem 5% 60px 5%;
+
+  h1 {
+    font-size: 1.802rem;
+    font-family: "Roboto", sans-serif;
+  }
+
+  h2 {
+    font-size: 1.602rem;
+    font-family: "Roboto", sans-serif;
+  }
+}
+
+header,
+main,
+footer {
+  max-width: 600px;
+  background: $secondary-color;
+}
+
+.about {
+  display: flex;
+  gap: 0.5rem;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+
+    .about__bug-image {
+      margin: 0 auto;
+    }
+  }
+
+  .about__bug-image img {
+    width: 200px;
+  }
+}

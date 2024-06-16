@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode | default "en-us" }}">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{if .IsHome}}{{ $.Site.Title }}
+		{{else}}{{.Title}}{{end}}
+	</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" rel="stylesheet">
+	<meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+	<meta itemprop="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+	<meta property="og:description"
+		content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
+	{{ with .Site.Params.author }}
+	<meta name="author" content="{{ . }}">{{ end }}
+	{{ $sass := resources.Get "style/main.scss" }}
+	{{ $style := $sass | resources.ToCSS }}
+	<link rel="stylesheet" href="{{ $style.Permalink }}">
+	<meta name="theme-color" content="#54002A">
+</head>
+
+<body>
+	{{ block "main" . }}{{ end }}
+</body>
+
+</html>

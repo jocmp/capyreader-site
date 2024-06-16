@@ -1,0 +1,40 @@
+html {
+  background: #8A7D3F; }
+
+body {
+  color: #1e2019;
+  font-family: "Lora", serif; }
+
+a:link {
+  color: #1e2019; }
+
+a:visited {
+  text-decoration: outline;
+  color: #1e2019; }
+
+main {
+  min-height: 60vh;
+  padding: 2rem 5% 60px 5%; }
+  main h1 {
+    font-size: 1.802rem;
+    font-family: "Roboto", sans-serif; }
+  main h2 {
+    font-size: 1.602rem;
+    font-family: "Roboto", sans-serif; }
+
+header,
+main,
+footer {
+  max-width: 600px;
+  background: #f9f7f0; }
+
+.about {
+  display: flex;
+  gap: 0.5rem; }
+  @media screen and (max-width: 600px) {
+    .about {
+      flex-direction: column; }
+      .about .about__bug-image {
+        margin: 0 auto; } }
+  .about .about__bug-image img {
+    width: 200px; }
