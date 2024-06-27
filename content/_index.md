@@ -2,7 +2,7 @@
 title: "Capy Reader"
 layout: "about"
 ---
-A smallish RSS reader for [Feedbin](https://feedbin.com/home)
+A smallish Android RSS reader for [Feedbin](https://feedbin.com/home) and local feeds.
 
 _Coming soon to the Google Play Store_
 
