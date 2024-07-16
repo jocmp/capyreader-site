@@ -2,3 +2,6 @@ baseURL = 'https://capyreader.com/'
 languageCode = 'en-us'
 title = 'Capy Reader'
 theme = 'kessel'
+
+[markup.goldmark.renderer]
+unsafe= true

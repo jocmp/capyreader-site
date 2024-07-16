@@ -4,6 +4,8 @@ layout: "about"
 ---
 A smallish Android RSS reader for [Feedbin](https://feedbin.com/home) and local feeds.
 
-_Coming soon to the Google Play Store_
+<a href="https://apt.izzysoft.de/fdroid/index/apk/com.capyreader.app">
+  <img src="/izzyondroid.svg" class="store-button" alt="Get it on IzzyOnDroid" />
+</a>
 
-[Track progress](https://github.com/jocmp/capyreader)
+Coming soon to Google Play.
