@@ -31,5 +31,5 @@ HUGO_ENABLEGITINFO = "true"
 
 [[redirects]]
 from = "/support"
-to = "https://github.com/jocmp/capyreader/issues/new/choose"
+to = "https://github.com/jocmp/capyreader/issues"
 status = 301
