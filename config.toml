@@ -3,5 +3,8 @@ languageCode = 'en-us'
 title = 'Capy Reader'
 theme = 'kessel'
 
+[params]
+  description = "A smallish RSS reader for Android"
+
 [markup.goldmark.renderer]
 unsafe= true

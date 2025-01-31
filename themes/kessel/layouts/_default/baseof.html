@@ -10,7 +10,12 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Lora&family=Roboto&display=swap" rel="stylesheet">
-	<link href="https://mastodon.social/@capyreader" rel="me">
+	<link href="https://mastodon.social/@_jocmp" rel="me">
+	{{if .IsHome}}
+	<meta property="og:image" content="featured-image.png" />
+	<meta property="og:image:width" content="1024" />
+	<meta property="og:image:height" content="500" />
+	{{end}}
 	<meta name="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 	<meta itemprop="description" content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}" />
 	<meta property="og:description"
@@ -18,7 +23,7 @@
 	{{ with .Site.Params.author }}
 	<meta name="author" content="{{ . }}">{{ end }}
 	{{ $sass := resources.Get "style/main.scss" }}
-	{{ $style := $sass | resources.ToCSS }}
+	{{ $style := $sass | css.Sass }}
 	<link rel="stylesheet" href="{{ $style.Permalink }}">
 	<meta name="theme-color" content="#54002A">
 </head>
