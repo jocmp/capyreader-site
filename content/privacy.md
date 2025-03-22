@@ -10,4 +10,4 @@ Capy Reader only collects crash reports via [Firebase Crashlytics](https://fireb
 
 ### Contact
 
-If you have any questions or comments about this privacy policy, please reach out to [support@asteriastudio.com](mailto:support@asteriastudio.com).
+If you have any questions or comments about this privacy policy, please reach out to [support@jocmp.com](mailto:support@jocmp.com).
