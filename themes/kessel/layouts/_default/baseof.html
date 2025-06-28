@@ -28,7 +28,6 @@
 	{{ $sass := resources.Get "style/main.scss" }}
 	{{ $style := $sass | css.Sass }}
 	<link rel="stylesheet" href="{{ $style.Permalink }}">
-	<meta name="theme-color" content="#54002A">
 </head>
 
 <body>
