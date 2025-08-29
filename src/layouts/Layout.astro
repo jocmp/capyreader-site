@@ -1,5 +1,6 @@
 ---
 import background from "../assets/hero.jpeg";
+import featuredImage from "../assets/featured-image.png";
 import "@fontsource-variable/newsreader";
 import "@fontsource-variable/work-sans";
 import GitHub from "../assets/github.svg";
@@ -15,6 +16,12 @@ const { title = "" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{[title, "Capy Reader"].filter(Boolean).join(" | ")}</title>
+    <meta property="og:url" content="https://capyreader.com" />
+    <meta property="og:type" content="website" />
+    <meta name="description" content="A smallish RSS reader for Android" />
+    <meta property="og:image" content={featuredImage.src} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="500" />
   </head>
   <body>
     <div class="container">
