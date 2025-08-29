@@ -1,3 +1,3 @@
-.PHONY: run
-run:
-	hugo server
+.PHONY: dev
+dev:
+	npm run dev

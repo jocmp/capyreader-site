@@ -1,0 +1,165 @@
+---
+import background from "../assets/hero.jpeg";
+import featuredImage from "../assets/featured-image.png";
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/work-sans";
+import GitHub from "../assets/github.svg";
+
+const { title = "" } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{[title, "Capy Reader"].filter(Boolean).join(" | ")}</title>
+    <meta property="og:url" content="https://capyreader.com" />
+    <meta property="og:type" content="website" />
+    <meta name="description" content="A smallish RSS reader for Android" />
+    <meta property="og:image" content={featuredImage.src} />
+    <meta property="og:image:width" content="1024" />
+    <meta property="og:image:height" content="500" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="background-image">
+        <img src={background.src} alt="" fetchpriority="high" />
+      </div>
+      <main>
+        <slot />
+        <footer>
+          <a href="https://github.com/jocmp/capyreader" class="github-link">
+            <GitHub width={16} height={16} />
+          </a>
+          <p>&copy; {new Date().getFullYear()} <a href="/">Capy Reader</a></p>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  :root {
+    --primary-color: #8a7d3f;
+    --secondary-color: #f9f7f0;
+    --text-color: #1e2019;
+    --max-width: 37.5rem;
+  }
+
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Work Sans", Arial, Helvetica, sans-serif;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  :global(a:link) {
+    color: var(--text-color);
+  }
+
+  :global(a:visited) {
+    text-decoration: outline;
+    color: var(--text-color);
+  }
+
+  :global(h1),
+  :global(h2) {
+    font-family: "Newsreader", Georgia, "Times New Roman", Times, serif;
+    font-weight: 600;
+  }
+
+  .container {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+  }
+
+  .background-image {
+    flex: 1;
+    position: absolute;
+    height: 100vh;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 768px) {
+      position: static;
+      width: 100%;
+      height: auto;
+      order: 1;
+    }
+  }
+
+  .background-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin: 0;
+    box-sizing: border-box;
+
+    @media screen and (max-width: 768px) {
+      object-fit: cover;
+      min-height: 20%;
+      object-position: left;
+    }
+  }
+
+  main {
+    background-color: var(--secondary-color);
+    min-height: 37.5rem;
+    padding: 2rem 3rem 3.75rem 3rem;
+    margin: 0.5rem;
+    width: var(--max-width);
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media screen and (max-width: 768px) {
+      /* min-height: 100vh; */
+      padding: 2rem 5% 3.75rem 5%;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      flex: 1;
+      order: 2;
+    }
+  }
+
+  .github-link {
+    color: var(--text-color);
+  }
+
+  footer {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 1rem 0.5rem;
+    gap: 0.5rem;
+    max-width: calc(var(--max-width) + 10%);
+
+    p {
+      margin: 0;
+    }
+  }
+</style>

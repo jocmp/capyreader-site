@@ -1,0 +1,35 @@
+---
+import googlePlay from "../assets/google-play.png";
+import fdroid from "../assets/fdroid.png";
+---
+
+<div>
+  <h1>Capy Reader</h1>
+  <p>
+    A smallish Android RSS reader for <a href="https://feedbin.com/home">Feedbin</a>, <a href="https://www.freshrss.org/">FreshRSS</a>, <a href="https://miniflux.app/">Miniflux</a>, and local
+    feeds.
+  </p>
+  <div class="store-buttons">
+    <a href="https://play.google.com/store/apps/details?id=com.capyreader.app">
+      <img
+        src={googlePlay.src}
+        class="store-button"
+        alt="Get it on Google Play"
+      />
+    </a>
+    <a href="https://f-droid.org/en/packages/com.capyreader.app/">
+      <img src={fdroid.src} class="store-button" alt="Get it on F-Droid" />
+    </a>
+  </div>
+</div>
+
+<style>
+  .store-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .store-button {
+    height: 2.625rem;
+  }
+</style>
