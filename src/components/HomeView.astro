@@ -1,0 +1,81 @@
+---
+import background from "../assets/hero.jpeg";
+import "@fontsource-variable/newsreader";
+---
+
+<div class="container">
+  <img
+    class="background-image"
+    src={background.src}
+    alt=""
+    fetchpriority="high"
+  />
+  <article>
+    <h1>Capy Reader</h1>
+    <p>
+      A smallish Android RSS reader for Feedbin, FreshRSS, Miniflux, and local
+      feeds.
+    </p>
+  </article>
+</div>
+
+<style>
+  :root {
+    --primary-color: #8a7d3f;
+    --secondary-color: #f9f7f0;
+    --text-color: #1e2019;
+    --max-width: 600px;
+  }
+
+  h1 {
+    font-family: "Newsreader", Georgia, "Times New Roman", Times, serif;
+    font-weight: 600;
+  }
+
+  .container {
+    background-color: var(--primary-color);
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+    }
+  }
+
+  .background-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+
+    @media screen and (max-width: 768px) {
+      position: static;
+      width: 100%;
+      height: auto;
+      order: 1;
+    }
+  }
+
+  article {
+    background-color: var(--secondary-color);
+    min-height: 60vh;
+    padding: 2rem 5% 3.75rem 5%;
+    max-width: var(--max-width);
+    position: relative;
+    /* z-index: 1; */
+
+    @media screen and (max-width: 768px) {
+      min-height: auto;
+      max-width: 100%;
+      flex: 1;
+      order: 2;
+    }
+  }
+</style>
