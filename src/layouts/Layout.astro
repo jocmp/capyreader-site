@@ -3,8 +3,11 @@ import background from "../assets/hero.jpeg";
 import featuredImage from "../assets/featured-image.png";
 import "@fontsource-variable/newsreader";
 import "@fontsource-variable/work-sans";
-import GitHub from "../assets/github.svg";
+import GitHub from "../assets/logo-github.svg";
+import Mastodon from "../assets/logo-mastodon.svg";
+import Bluesky from "../assets/logo-bsky.svg";
 
+const mastodonLink = "https://mastodon.social/@_jocmp";
 const { title = "" } = Astro.props;
 ---
 
@@ -16,6 +19,7 @@ const { title = "" } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <title>{[title, "Capy Reader"].filter(Boolean).join(" | ")}</title>
+    <link href={mastodonLink} rel="me" />
     <meta property="og:url" content="https://capyreader.com" />
     <meta property="og:type" content="website" />
     <meta name="description" content="A smallish RSS reader for Android" />
@@ -31,9 +35,17 @@ const { title = "" } = Astro.props;
       <main>
         <slot />
         <footer>
-          <a href="https://github.com/jocmp/capyreader" class="github-link">
-            <GitHub width={16} height={16} />
-          </a>
+          <div class="social-links">
+            <a href="https://github.com/jocmp/capyreader">
+              <GitHub width={16} height={16} />
+            </a>
+            <a href={mastodonLink}>
+              <Mastodon width={15} height={15} />
+            </a>
+            <a href="https://bsky.app/profile/jocmp.com">
+              <Bluesky width={15} height={15} />
+            </a>
+          </div>
           <p>&copy; {new Date().getFullYear()} <a href="/">Capy Reader</a></p>
         </footer>
       </main>
@@ -136,7 +148,6 @@ const { title = "" } = Astro.props;
     justify-content: space-between;
 
     @media screen and (max-width: 768px) {
-      /* min-height: 100vh; */
       padding: 2rem 5% 3.75rem 5%;
       width: 100%;
       max-width: 100%;
@@ -146,10 +157,6 @@ const { title = "" } = Astro.props;
     }
   }
 
-  .github-link {
-    color: var(--text-color);
-  }
-
   footer {
     display: flex;
     align-items: flex-start;
@@ -157,6 +164,21 @@ const { title = "" } = Astro.props;
     padding: 1rem 0.5rem;
     gap: 0.5rem;
     max-width: calc(var(--max-width) + 10%);
+    gap: 1rem;
+
+    .social-links {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      a {
+        text-decoration: none;
+      }
+
+      svg {
+        color: var(--text-color);
+      }
+    }
 
     p {
       margin: 0;
