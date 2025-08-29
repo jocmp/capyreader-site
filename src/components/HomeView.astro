@@ -1,81 +1,35 @@
 ---
-import background from "../assets/hero.jpeg";
-import "@fontsource-variable/newsreader";
+import googlePlay from "../assets/google-play.png";
+import fdroid from "../assets/fdroid.png";
 ---
 
-<div class="container">
-  <img
-    class="background-image"
-    src={background.src}
-    alt=""
-    fetchpriority="high"
-  />
-  <article>
-    <h1>Capy Reader</h1>
-    <p>
-      A smallish Android RSS reader for Feedbin, FreshRSS, Miniflux, and local
-      feeds.
-    </p>
-  </article>
+<div>
+  <h1>Capy Reader</h1>
+  <p>
+    A smallish Android RSS reader for <a href="https://feedbin.com/home">Feedbin</a>, <a href="https://www.freshrss.org/">FreshRSS</a>, <a href="https://miniflux.app/">Miniflux</a>, and local
+    feeds.
+  </p>
+  <div class="store-buttons">
+    <a href="https://play.google.com/store/apps/details?id=com.capyreader.app">
+      <img
+        src={googlePlay.src}
+        class="store-button"
+        alt="Get it on Google Play"
+      />
+    </a>
+    <a href="https://f-droid.org/en/packages/com.capyreader.app/">
+      <img src={fdroid.src} class="store-button" alt="Get it on F-Droid" />
+    </a>
+  </div>
 </div>
 
 <style>
-  :root {
-    --primary-color: #8a7d3f;
-    --secondary-color: #f9f7f0;
-    --text-color: #1e2019;
-    --max-width: 600px;
-  }
-
-  h1 {
-    font-family: "Newsreader", Georgia, "Times New Roman", Times, serif;
-    font-weight: 600;
-  }
-
-  .container {
-    background-color: var(--primary-color);
-    min-height: 100vh;
-    position: relative;
+  .store-buttons {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    @media screen and (max-width: 768px) {
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: flex-start;
-    }
+    gap: 0.5rem;
   }
 
-  .background-image {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
-
-    @media screen and (max-width: 768px) {
-      position: static;
-      width: 100%;
-      height: auto;
-      order: 1;
-    }
-  }
-
-  article {
-    background-color: var(--secondary-color);
-    min-height: 60vh;
-    padding: 2rem 5% 3.75rem 5%;
-    max-width: var(--max-width);
-    position: relative;
-    /* z-index: 1; */
-
-    @media screen and (max-width: 768px) {
-      min-height: auto;
-      max-width: 100%;
-      flex: 1;
-      order: 2;
-    }
+  .store-button {
+    height: 2.625rem;
   }
 </style>
