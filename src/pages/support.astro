@@ -1,0 +1,62 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Support"
+  description="Get help with Capy Reader - Report bugs and request features."
+>
+  <div>
+    <h1>Support</h1>
+
+    <p>
+      Bug reports are always welcome and are a top priority. Please search the <a
+        href="https://github.com/jocmp/capyreader/discussions"
+        >GitHub discussions</a
+      > first and issues to make sure the bug is new and hasn't been reported yet.
+    </p>
+    <p>
+      Please include details like app version, OS version, and steps to
+      reproduce the bug.
+    </p>
+    <a
+      class="button"
+      href="https://github.com/jocmp/capyreader/discussions/new?category=bugs"
+      >Report a bug</a
+    >
+
+    <h2>Feature Requests</h2>
+    <p>
+      If you have ideas on how to improve the app, please post them to GitHub
+      discussions as a <a
+        href="https://github.com/jocmp/capyreader/discussions/new?category=feature-requests"
+        >feature request</a
+      >.
+    </p>
+  </div>
+</Layout>
+
+<style>
+  .button {
+    display: inline-block;
+    background-color: #c39f3d;
+    color: var(--secondary-color);
+    padding: 0.875rem 1.75rem;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+
+  .button:visited {
+    color: var(--secondary-color);
+  }
+
+  .button:hover {
+    background-color: #af8f37;
+  }
+
+  .button:active {
+    background-color: #a08232;
+  }
+</style>

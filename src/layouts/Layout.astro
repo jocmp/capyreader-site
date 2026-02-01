@@ -8,7 +8,12 @@ import Mastodon from "../assets/logo-mastodon.svg";
 import Bluesky from "../assets/logo-bsky.svg";
 
 const mastodonLink = "https://mastodon.social/@_jocmp";
-const { title = "" } = Astro.props;
+const siteUrl = "https://capyreader.com";
+const {
+  title = "",
+  description = "A smallish RSS reader for Android",
+} = Astro.props;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <!doctype html>
@@ -20,9 +25,11 @@ const { title = "" } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{[title, "Capy Reader"].filter(Boolean).join(" | ")}</title>
     <link href={mastodonLink} rel="me" />
-    <meta property="og:url" content="https://capyreader.com" />
+    <link rel="canonical" href={canonicalUrl} />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
-    <meta name="description" content="A smallish RSS reader for Android" />
+    <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
     <meta property="og:image" content={featuredImage.src} />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="500" />
@@ -46,6 +53,10 @@ const { title = "" } = Astro.props;
               <Bluesky width={16} height={16} />
             </a>
           </div>
+          <nav class="footer-links">
+            <a href="/support">Support</a>
+            <a href="/privacy">Privacy</a>
+          </nav>
           <p>&copy; {new Date().getFullYear()} <a href="/">Capy Reader</a></p>
         </footer>
       </main>
@@ -171,17 +182,14 @@ const { title = "" } = Astro.props;
 
   footer {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: wrap;
     padding: 1rem 0.5rem;
-    gap: 0.5rem;
-    max-width: calc(var(--max-width) + 10%);
     gap: 1rem;
 
     .social-links {
       display: flex;
       gap: 0.5rem;
-      align-items: center;
 
       a {
         text-decoration: none;
@@ -194,6 +202,11 @@ const { title = "" } = Astro.props;
 
     p {
       margin: 0;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
     }
   }
 </style>
