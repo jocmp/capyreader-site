@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import googlePlay from "../assets/google-play.png";
 import fdroid from "../assets/fdroid.png";
 ---
@@ -11,14 +12,10 @@ import fdroid from "../assets/fdroid.png";
   </p>
   <div class="store-buttons">
     <a href="https://play.google.com/store/apps/details?id=com.capyreader.app">
-      <img
-        src={googlePlay.src}
-        class="store-button"
-        alt="Get it on Google Play"
-      />
+      <Image src={googlePlay} class="store-button" alt="Get it on Google Play" />
     </a>
     <a href="https://f-droid.org/en/packages/com.capyreader.app/">
-      <img src={fdroid.src} class="store-button" alt="Get it on F-Droid" />
+      <Image src={fdroid} class="store-button" alt="Get it on F-Droid" />
     </a>
   </div>
 </div>
@@ -31,5 +28,6 @@ import fdroid from "../assets/fdroid.png";
 
   .store-button {
     height: 2.625rem;
+    width: auto;
   }
 </style>
