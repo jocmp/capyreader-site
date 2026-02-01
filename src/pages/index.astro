@@ -1,8 +1,29 @@
 ---
 import HomeView from '../components/HomeView.astro';
 import Layout from '../layouts/Layout.astro';
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Capy Reader",
+  "applicationCategory": "NewsApplication",
+  "operatingSystem": "Android",
+  "description": "A smallish RSS reader for Android",
+  "url": "https://capyreader.com",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "potentialAction": {
+    "@type": "DonateAction",
+    "target": "https://capyreader.com/donate"
+  }
+};
 ---
 
 <Layout>
 	<HomeView />
 </Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />

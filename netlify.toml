@@ -1,13 +1,3 @@
 [build]
 command = "npm run build"
 publish = "dist"
-
-[[redirects]]
-from = "/support"
-to = "https://github.com/jocmp/capyreader/issues"
-status = 301
-
-[[redirects]]
-from = "/donate"
-to = "https://ko-fi.com/capyreader"
-status = 301

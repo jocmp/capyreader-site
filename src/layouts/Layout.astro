@@ -28,6 +28,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <link rel="canonical" href={canonicalUrl} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Capy Reader" />
+    <meta property="og:title" content={title ? `${title} | Capy Reader` : "Capy Reader"} />
     <meta name="description" content={description} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={featuredImage.src} />
