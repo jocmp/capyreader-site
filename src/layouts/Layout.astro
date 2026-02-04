@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import { Picture } from "astro:assets";
 import background from "../assets/hero.jpeg";
 import featuredImage from "../assets/featured-image.png";
@@ -36,10 +37,11 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <meta property="og:image" content={featuredImage.src} />
     <meta property="og:image:width" content="1024" />
     <meta property="og:image:height" content="500" />
+    <ClientRouter />
   </head>
   <body>
     <div class="container">
-      <div class="background-image">
+      <div class="background-image" transition:persist>
         <Picture
           src={background}
           formats={["avif", "webp", "jpeg"]}
