@@ -1,0 +1,108 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const faqs = [
+  {
+    question: "What is Capy Reader?",
+    answer:
+      "Capy Reader is a free, open-source RSS feed reader and news aggregator for Android. It's designed to be simple and focused on reading. No social features, no algorithmic feeds, just your subscriptions. It supports popular sync services like Feedbin, FreshRSS, and Miniflux, as well as local-only feeds.",
+  },
+  {
+    question: "Is Capy Reader free?",
+    answer:
+      "Yes. Capy Reader is completely free with no ads or in-app purchases. It's available on <a href='https://play.google.com/store/apps/details?id=com.capyreader.app'>Google Play</a> and <a href='https://f-droid.org/packages/com.capyreader.app'>F-Droid</a> for devices running Android 11 or above. It can also be found on <a href='https://apt.izzysoft.de/fdroid/index/apk/com.capyreader.app'>IzzyOnDroid</a> and <a href='https://github.com/jocmp/capyreader/releases'>GitHub releases</a>. If you enjoy the app, consider <a href='/donate'>donating</a> to support development.",
+  },
+  {
+    question: "Does Capy Reader work with FreshRSS, Miniflux, or Feedbin?",
+    answer:
+      "Yes. Capy Reader supports Feedbin, FreshRSS, and Miniflux as sync backends, including any self-hosted options that support Google Reader API. You can also use it with local-only feeds if you don't want to sync with a server.",
+  },
+  {
+    question: "Does Capy Reader support full content or a reader view?",
+    answer:
+      "Yes. Capy Reader has a full content mode that fetches the complete article from the original site when a feed only provides a summary or excerpt. Given the chaos of the web, full content mode may not work perfectly on every site. If you find a site where it doesn't work as expected, you can <a href='https://github.com/jocmp/capyreader/issues/new?template=2-full-content-request.yml'>submit a full content request</a> on GitHub.",
+  },
+  {
+    question: "Why can't I add a specific feed?",
+    answer:
+      "Some feeds are protected by Cloudflare or other bot-detection services that block Capy Reader's requests. Other feeds may use non-standard formats or return empty content. If a service is blocking the app, you can share Capy Reader's user agent string with the site administrator: <pre>CapyReader (RSS Reader; https://capyreader.com/)</pre>",
+  },
+  {
+    question: "How do I report a bug or request a feature?",
+    answer:
+      "You can report bugs and request features through <a href='https://github.com/jocmp/capyreader/discussions'>GitHub discussions</a>. For more details, see the <a href='/support'>Support</a> page.",
+  },
+];
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+---
+
+<Layout
+  title="Capy Reader FAQ"
+  description="Frequently asked questions about Capy Reader, a free Android RSS feed aggregator supporting Feedbin, FreshRSS, and Miniflux."
+>
+  <div>
+    <h1>Frequently Asked Questions</h1>
+    <dl class="faq-list">
+      {
+        faqs.map((faq) => (
+          <div class="faq-item">
+            <dt>{faq.question}</dt>
+            <dd set:html={faq.answer} />
+          </div>
+        ))
+      }
+    </dl>
+    <p class="support-link">
+      Have another question? Check the <a
+        href="https://github.com/jocmp/capyreader/discussions"
+        >GitHub discussions</a
+      > or reach out to <a href="mailto:support@jocmp.com">support@jocmp.com</a
+      >.
+    </p>
+  </div>
+  <script
+    is:inline
+    type="application/ld+json"
+    set:html={JSON.stringify(structuredData)}
+  />
+</Layout>
+
+<style>
+  .faq-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  .faq-item {
+    margin-bottom: 1.5rem;
+  }
+
+  dt {
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  dd {
+    margin: 0;
+    line-height: 1.6;
+  }
+
+  .support-link {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #ddd;
+  }
+</style>
