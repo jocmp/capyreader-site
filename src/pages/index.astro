@@ -7,7 +7,7 @@ const structuredData = {
   "@type": "SoftwareApplication",
   "name": "Capy Reader",
   "applicationCategory": "NewsApplication",
-  "operatingSystem": "Android",
+  "operatingSystem": "Android 11+",
   "description": "A smallish RSS reader for Android",
   "url": "https://capyreader.com",
   "downloadUrl": [
@@ -30,4 +30,4 @@ const structuredData = {
 	<HomeView />
 </Layout>
 
-<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
