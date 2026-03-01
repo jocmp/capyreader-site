@@ -54,22 +54,22 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       <main>
         <slot />
         <footer>
-          <div class="social-links">
-            <a href="https://github.com/jocmp/capyreader">
-              <GitHub width={16} height={16} />
-            </a>
-            <a href={mastodonLink}>
-              <Mastodon width={16} height={16} />
-            </a>
-            <a href="https://bsky.app/profile/jocmp.com">
-              <Bluesky width={16} height={16} />
-            </a>
-          </div>
           <nav class="footer-links">
             <a href="/support">Support</a>
             <a href="/privacy">Privacy</a>
             <a href="/faq">FAQ</a>
           </nav>
+          <div class="social-links">
+            <a href="https://github.com/jocmp/capyreader" aria-label="GitHub">
+              <GitHub width={16} height={16} />
+            </a>
+            <a href={mastodonLink} aria-label="Mastodon">
+              <Mastodon width={16} height={16} />
+            </a>
+            <a href="https://bsky.app/profile/jocmp.com" aria-label="Bluesky">
+              <Bluesky width={16} height={16} />
+            </a>
+          </div>
           <p>&copy; {new Date().getFullYear()} <a href="/">Capy Reader</a></p>
         </footer>
       </main>
@@ -202,9 +202,17 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     .social-links {
       display: flex;
       gap: 0.5rem;
+      order: 3;
+      width: 100%;
+      margin-left: -0.75rem;
 
       a {
         text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 3rem;
+        min-height: 3rem;
       }
 
       svg {
@@ -212,13 +220,15 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       }
     }
 
-    p {
-      margin: 0;
-    }
-
     .footer-links {
       display: flex;
       gap: 1rem;
+      order: 1;
+    }
+
+    p {
+      margin: 0;
+      order: 2;
     }
   }
 </style>
